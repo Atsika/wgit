@@ -2,6 +2,9 @@ package auth
 
 import (
 	"github.com/AlecAivazis/survey/v2"
+
+	SSH "golang.org/x/crypto/ssh"
+
 	"github.com/go-git/go-git/v5/plumbing/transport"
 	"github.com/go-git/go-git/v5/plumbing/transport/http"
 	"github.com/go-git/go-git/v5/plumbing/transport/ssh"
@@ -65,6 +68,8 @@ func SshAuthGit(SSHkeyPath string) *ssh.PublicKeys {
 	if err != nil {
 		panic(err)
 	}
+
+	publicKeys.HostKeyCallback = SSH.InsecureIgnoreHostKey()
 	return publicKeys
 }
 

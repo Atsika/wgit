@@ -131,18 +131,35 @@ func ListFiles(files []string) {
 }
 
 func WriteFiles(bfs billy.Filesystem, files []string) {
+	downloaded := 0
 	for i := range files {
 		file, err := bfs.Open(files[i])
 		if err != nil {
 			panic(err)
 		}
 		content, _ := ioutil.ReadAll(file)
-		ioutil.WriteFile(filepath.Base(files[i]), content, os.ModePerm)
+		if _, err := os.Stat(file.Name()); os.IsNotExist(err) {
+			ioutil.WriteFile(file.Name(), content, os.ModePerm)
+			downloaded++
+		} else {
+			overwrite := false
+			prompt := &survey.Confirm{
+				Message: "File '" + file.Name() + "' already exists. Do you want to overwrite it ?",
+				Default: false,
+			}
+			survey.AskOne(prompt, &overwrite)
+			if overwrite {
+				ioutil.WriteFile(file.Name(), content, os.ModePerm)
+				downloaded++
+			}
+		}
 	}
-	if len(files) > 0 {
+	if downloaded > 0 {
 		fmt.Println("⬇️  Files downloaded successfully")
-	} else {
+	} else if len(files) == 0 {
 		fmt.Println("No files selected")
+	} else if downloaded == 0 {
+		fmt.Println("No files downloaded")
 	}
 	utils.Pause()
 }
