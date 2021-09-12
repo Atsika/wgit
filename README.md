@@ -8,7 +8,7 @@ Get any file from a Git server
 
 [![made-with-Go](https://img.shields.io/badge/Made%20with-Go-blue.svg)](http://golang.org)  [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
-## Introdution
+## Introduction
 
 Aren't you done of cloning a whole repository just to get a single file ?  
 Wgit is the tool made for you.  
@@ -135,7 +135,7 @@ Those amazing packages:
 * [go-billy](github.com/go-git/go-billy)
 * [Survey](https://github.com/AlecAivazis/survey)
 
-## LICENSE
+## License
 
 MIT License (see [LICENSE](LICENSE)).
 
