@@ -104,7 +104,27 @@ Since Wgit is made in Go and using full cross-platform packages, it should run o
 
 Feel free to test it on other platform and submit a merge request with updated [README.md](README.md).
 
-## 📝 TODO
+## Installation
+
+Clone the repo and build wgit using Go. Move it somewhere in PATH so you can call it from anywhere.
+
+```
+git clone https://github.com/Atsika/wgit.git
+cd wgit
+go build
+chmod +x wgit
+sudo cp wgit /usr/local/bin
+```
+
+## Usage
+
+Simply call the wgit binary and follow the instructions. On first launch you will be prompted for some informations. Next times, you will be asked if you want to use the configuration file or not.
+
+```
+wgit
+```
+
+## TODO
 
 * Waiting you to tell me :)
 
