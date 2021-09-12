@@ -97,7 +97,7 @@ Wgit embeds a search filter so you could find your files faster.
 
 ## 🤝 Cross-platform
 
-Since Wgit is made in Go and using full cross-platform packages, it should run on any plateform.
+Since Wgit is made in Go and is using full cross-platform packages, it should run on any platform.
 
 ⚠️ Currently only tested on:
 * Linux Fedora 34
