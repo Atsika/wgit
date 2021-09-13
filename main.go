@@ -138,18 +138,19 @@ func WriteFiles(bfs billy.Filesystem, files []string) {
 			panic(err)
 		}
 		content, _ := ioutil.ReadAll(file)
-		if _, err := os.Stat(file.Name()); os.IsNotExist(err) {
-			ioutil.WriteFile(file.Name(), content, os.ModePerm)
+		base := filepath.Base(file.Name())
+		if _, err := os.Stat(base); os.IsNotExist(err) {
+			ioutil.WriteFile(base, content, os.ModePerm)
 			downloaded++
 		} else {
 			overwrite := false
 			prompt := &survey.Confirm{
-				Message: "File '" + file.Name() + "' already exists. Do you want to overwrite it ?",
+				Message: "File '" + base + "' already exists. Do you want to overwrite it ?",
 				Default: false,
 			}
 			survey.AskOne(prompt, &overwrite)
 			if overwrite {
-				ioutil.WriteFile(file.Name(), content, os.ModePerm)
+				ioutil.WriteFile(base, content, os.ModePerm)
 				downloaded++
 			}
 		}
