@@ -4,7 +4,7 @@
     <img src="doc/img/wgit_logo.png">
 </div>
 
-Get only desired files from a Git server.
+Get only desired files from a repository.
 
 [![made-with-Go](https://img.shields.io/badge/Made%20with-Go-blue.svg)](http://golang.org)  [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
@@ -12,7 +12,7 @@ Get only desired files from a Git server.
 
 Aren't you done of cloning a whole repository just to get a single file ?  
 Wgit is the tool made for you.  
-Be able to retrieve **only desired file**. from **any Git server**.
+Be able to retrieve **only desired files** from a repository.
 
 ## Features
 
