@@ -174,8 +174,9 @@ func Selector(tree []Directory, files []string, bfs billy.Filesystem) {
 			tree[i].Content = utils.Prepend(tree[i].Content, Back)
 		}
 		prompt := &survey.Select{
-			Message: "Current directory is: " + tree[i].Name + "\nSelect desired files:",
-			Options: tree[i].Content,
+			Message:  "Current directory is: " + tree[i].Name + "\nSelect desired files:",
+			Options:  tree[i].Content,
+			PageSize: 15,
 		}
 		ret := survey.AskOne(prompt, &selection, survey.WithIcons(func(icons *survey.IconSet) {
 			icons.Question.Text = "📍"
