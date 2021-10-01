@@ -37,6 +37,10 @@ func Prepend(s []string, e string) []string {
 	return s
 }
 
+func HasSuffix(s, suffix string) bool {
+	return len(s) >= len(suffix) && s[len(s)-len(suffix):] == suffix
+}
+
 func Flush() {
 	fmt.Print("\033[H\033[2J")
 }

@@ -5,7 +5,6 @@ import (
 	"io/ioutil"
 	"os"
 	"path/filepath"
-	"strings"
 
 	"wgit/auth"
 	"wgit/config"
@@ -195,7 +194,7 @@ func Selector(tree []Directory, files []string, bfs billy.Filesystem) {
 		}
 
 		selectionPath := GetFullPath(selection, tree, i)
-		if strings.HasSuffix(selection, "/") {
+		if utils.HasSuffix(selection, "/") {
 			tmp := FindDirectory(tree, selectionPath[:len(selectionPath)-1])
 			if tmp != -1 {
 				i = tmp
