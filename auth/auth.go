@@ -68,8 +68,8 @@ func SshAuthGit(SSHkeyPath string) *ssh.PublicKeys {
 	if err != nil {
 		panic(err)
 	}
-
 	publicKeys.HostKeyCallback = SSH.InsecureIgnoreHostKey()
+
 	return publicKeys
 }
 
